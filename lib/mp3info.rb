@@ -86,7 +86,7 @@ class Mp3Info
     "album"    => "TAL",
     "year"     => "TYE",
     "tracknum" => "TRK",
-    "comments" => "COM",
+    # "comments" => "COM",
     "genre_s"  => "TCO"
   }
 
@@ -97,7 +97,7 @@ class Mp3Info
     "album"    => "TALB",
     "year"     => "TYER",
     "tracknum" => "TRCK",
-    "comments" => "COMM",
+    # "comments" => "COMM",
     "genre_s"  => "TCON"
   }
 
@@ -413,7 +413,7 @@ class Mp3Info
             @tag1_orig["artist"]||"",
             @tag1_orig["album"]||"",
             ((@tag1_orig["year"] != 0) ? ("%04d" % @tag1_orig["year"].to_i) : "\0\0\0\0"),
-            @tag1_orig["comments"]||"",
+            "",
             0,
             @tag1_orig["tracknum"]||0,
             @tag1_orig["genre"]||255

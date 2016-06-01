@@ -24,7 +24,7 @@ class ID3v2 < DelegateClass(Hash)
   TAGS = {
     "AENC" => "Audio encryption",
     "APIC" => "Attached picture",
-    "COMM" => "Comments",
+    # "COMM" => "Comments",
     "COMR" => "Commercial frame",
     "ENCR" => "Encryption method registration",
     "EQUA" => "Equalization",
@@ -454,8 +454,8 @@ class ID3v2 < DelegateClass(Hash)
   ### Read a tag from file and perform UNICODE translation if needed
   def decode_tag(name, raw_value)
     puts("decode_tag(#{name.inspect}, #{raw_value.inspect})") if $DEBUG
-    if name =~ /^(T|COM|USLT)/
-      if name =~ /^(COM|USLT)/
+    if name =~ /^(T|USLT)/
+      if name =~ /^(USLT)/
         #FIXME improve this
         encoding_index, lang, raw_tag = raw_value.unpack("ca3a*")
         if encoding_index == 1
